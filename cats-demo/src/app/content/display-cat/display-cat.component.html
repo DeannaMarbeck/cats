@@ -1,0 +1,8 @@
+<div *ngIf="catDataService.cat | async; let cat">
+  <h1>Cats demo</h1>
+  <!--<p>{{catData.width}}</p>-->
+  <img class="cat-image" [src]="cat.url" />
+  <p>{{cat.url}}</p>
+  <p>ID: {{cat.id}}</p>
+  <button mat-raised-button color="primary" (click)="newCat()">Get another cat!</button>
+</div>
