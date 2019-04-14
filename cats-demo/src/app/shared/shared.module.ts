@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {RouterModule} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MaterialModule} from "./material/material.module";
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,7 @@ import {MaterialModule} from "./material/material.module";
     ReactiveFormsModule,
     MaterialModule
   ],
-  declarations: [],
+  declarations: [PageNotFoundComponent],
   exports: [
     MaterialModule,
     RouterModule,

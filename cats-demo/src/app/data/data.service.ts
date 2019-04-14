@@ -4,7 +4,7 @@ import {BehaviorSubject, Observable, throwError} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {catchError} from 'rxjs/operators';
 import {ApiService} from './api.service';
-import {Cat} from './types';
+import {Cat, GalleryCat} from './types';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,9 @@ import {Cat} from './types';
 export class DataService {
 
 
-  private catData: BehaviorSubject<Cat[]> = new BehaviorSubject<Cat[]>([]);
+  private _catData: BehaviorSubject<Cat[]> = new BehaviorSubject<Cat[]>([]);
+  private _catsInGallery: BehaviorSubject<GalleryCat[]> = new BehaviorSubject<GalleryCat[]>([]);
+
   constructor( private http: HttpClient, private api: ApiService ) {
     this.getCat();
   }
@@ -21,13 +23,20 @@ export class DataService {
     this.api.getCat()
       .subscribe(res => {
         console.log(res[0]);
-        this.catData.next(res[0]);
+        this._catData.next(res[0]);
       });
     return;
   }
+  public updateGallery(catsInGallery: GalleryCat[]) {
+    this._catsInGallery.next(catsInGallery);
+    return this._catsInGallery;
+  }
 
-  public get cat() {
-    return this.catData;
+  public get catData() {
+    return this._catData;
+  }
+  public get catsInGallery() {
+    return this._catsInGallery;
   }
 
 }

@@ -4,3 +4,7 @@ export class Cat {
   public height: number;
   public id: string;
 }
+export class GalleryCat {
+  public id: string;
+  public url: string;
+}

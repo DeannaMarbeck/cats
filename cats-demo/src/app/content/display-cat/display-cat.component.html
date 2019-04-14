@@ -1,8 +1,10 @@
-<div *ngIf="catDataService.cat | async; let cat">
+<div *ngIf="catDataService.catData | async; let cat">
   <h1>Cats demo</h1>
   <!--<p>{{catData.width}}</p>-->
   <img class="cat-image" [src]="cat.url" />
   <p>{{cat.url}}</p>
   <p>ID: {{cat.id}}</p>
-  <button mat-raised-button color="primary" (click)="newCat()">Get another cat!</button>
+  <button mat-raised-button color="accent" (click)="saveCat(cat.id, cat.url)">Save to gallery</button>
+  <button mat-raised-button color="primary" (click)="newCat()">No thanks. Next!</button>
+  <a mat-raised-button color="primary" routerLink="gallery">Go to gallery</a>
 </div>
