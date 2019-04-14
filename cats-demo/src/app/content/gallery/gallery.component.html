@@ -1,6 +1,8 @@
-<section *ngIf="catDataService.catsInGallery | async; let galleryCats">
-  <h1>Great gallery, well done!</h1>
-  <ul>
+<!--Display the gallery page and pass cats through to the gallery card-->
+<section *ngIf="catDataService.catsInGallery | async; let galleryCats" class="gallery-header">
+  <h1 *ngIf="galleryCats.length === 0">Sorry, no cats yet.  <a routerLink="/">Create a gallery</a>.</h1>
+  <h1 *ngIf="galleryCats.length !== 0">Great gallery, well done!</h1>
+  <section class="gallery">
     <app-gallery-image *ngFor="let cat of galleryCats" [cat]="cat"></app-gallery-image>
-  </ul>
+  </section>
 </section>

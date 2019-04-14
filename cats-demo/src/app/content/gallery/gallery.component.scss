@@ -1,0 +1,9 @@
+.gallery {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.gallery-header {
+  text-align: center;
+}

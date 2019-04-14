@@ -4,7 +4,6 @@
 
 export const environment = {
   production: false,
-  // apiBaseUrl: 'https://cataas.com/cat'
   apiBaseUrl: 'https://api.thecatapi.com/v1/images/search'
 };
 

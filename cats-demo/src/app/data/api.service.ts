@@ -11,7 +11,6 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
   public getCat(): Observable<any>{
-    console.log('getting cat data', environment.apiBaseUrl);
     return this.http.get<any>(`${environment.apiBaseUrl}`)
       .pipe(
         map(res => {

@@ -10,23 +10,20 @@ import {Cat, GalleryCat} from './types';
   providedIn: 'root'
 })
 export class DataService {
-
-
   private _catData: BehaviorSubject<Cat[]> = new BehaviorSubject<Cat[]>([]);
   private _catsInGallery: BehaviorSubject<GalleryCat[]> = new BehaviorSubject<GalleryCat[]>([]);
 
-  constructor( private http: HttpClient, private api: ApiService ) {
-    // this.getCat();
-  }
+  constructor( private http: HttpClient, private api: ApiService ) { }
 
+  // Fetch data from the api
   public getCat(): any {
     this.api.getCat()
       .subscribe(res => {
-        console.log(res[0]);
         this._catData.next(res[0]);
       });
     return;
   }
+  // Store the current cats in the gallery
   public updateGallery(catsInGallery: GalleryCat[]) {
     this._catsInGallery.next(catsInGallery);
     return this._catsInGallery;
