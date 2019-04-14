@@ -1,6 +1,6 @@
 <section *ngIf="catDataService.catsInGallery | async; let galleryCats">
   <h1>Great gallery, well done!</h1>
-  <ul>
+  <section class="gallery">
     <app-gallery-image *ngFor="let cat of galleryCats" [cat]="cat"></app-gallery-image>
-  </ul>
+  </section>
 </section>

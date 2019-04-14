@@ -17,10 +17,9 @@ export class DisplayCatComponent implements OnInit {
   public newCat(): Cat {
     return this.catDataService.getCat();
   }
-  // get currentDay(): number {
-  //   return Date.now();
-  // }
+
   public saveCat(catId: string, catUrl: string): void {
+    this.catsInGallery = this.catDataService.catsInGallery.getValue();
     this.catsInGallery.push({id: catId, url: catUrl});
     this.catDataService.updateGallery(this.catsInGallery);
     this.catDataService.getCat();

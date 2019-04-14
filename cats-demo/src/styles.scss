@@ -1,1 +1,15 @@
 @import "~@angular/material/prebuilt-themes/purple-green.css";
+
+a {
+  color: white;
+}
+a:hover {
+  color: yellow;
+}
+.wrapper {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  padding: 1em 0;
+  min-height: 80vh;
+}

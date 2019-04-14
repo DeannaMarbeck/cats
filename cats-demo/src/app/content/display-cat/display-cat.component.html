@@ -1,18 +1,19 @@
-<section>
+<header>
   <p>Stressed?</p>
   <p>Stuck on a coding problem?</p>
   <p>Just feeling a bit {{today | date:'EEEE'}}-ish?</p>
   <p>Free your sub-conscious and</p>
   <h1>Create a cat gallery!</h1>
   <button mat-raised-button color="primary" (click)="newCat()" *ngIf="catDataService.catData.getValue().length === 0; else displayCat">Get my first cat</button>
-</section>
+</header>
 <ng-template #displayCat>
-  <div *ngIf="catDataService.catData | async; let cat">
-    <img class="cat-image" [src]="cat.url" />
-    <p>{{cat.url}}</p>
-    <p>ID: {{cat.id}}</p>
+  <section *ngIf="catDataService.catData | async; let cat">
+    <app-gallery-image [cat]="cat"></app-gallery-image>
+    <!--<img class="cat-image" [src]="cat.url" />-->
+    <!--<p>{{cat.url}}</p>-->
+    <!--<p>ID: {{cat.id}}</p>-->
     <button mat-raised-button color="accent" (click)="saveCat(cat.id, cat.url)">Save to gallery</button>
     <button mat-raised-button color="primary" (click)="newCat()">No thanks. Next!</button>
     <a mat-raised-button color="primary" routerLink="gallery">Go to gallery</a>
-  </div>
+  </section>
 </ng-template>
