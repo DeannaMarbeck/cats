@@ -10,15 +10,20 @@ import {Cat, GalleryCat} from '../../data/types';
 export class DisplayCatComponent implements OnInit {
 
   public catsInGallery: GalleryCat[] = [];
+  public today: number = Date.now();
   constructor( public catDataService: DataService) {  }
 
   ngOnInit() {  }
   public newCat(): Cat {
     return this.catDataService.getCat();
   }
+  // get currentDay(): number {
+  //   return Date.now();
+  // }
   public saveCat(catId: string, catUrl: string): void {
     this.catsInGallery.push({id: catId, url: catUrl});
     this.catDataService.updateGallery(this.catsInGallery);
+    this.catDataService.getCat();
     console.log(this.catsInGallery);
     return;
   }

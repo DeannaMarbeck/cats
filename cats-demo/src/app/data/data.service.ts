@@ -16,7 +16,7 @@ export class DataService {
   private _catsInGallery: BehaviorSubject<GalleryCat[]> = new BehaviorSubject<GalleryCat[]>([]);
 
   constructor( private http: HttpClient, private api: ApiService ) {
-    this.getCat();
+    // this.getCat();
   }
 
   public getCat(): any {
