@@ -1,6 +1,9 @@
-<div class="mat-typography mat-app-background">
-  <h1>Cats demo</h1>
-  <button mat-raised-button color="primary">Click me!</button>
+<div class="mat-app-background mat-typography">
+  <body>
+    <app-header></app-header>
+    <div class="wrapper">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+  </body>
 </div>
-
-<router-outlet></router-outlet>

@@ -1,0 +1,15 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+nav a {
+  padding: 1em;
+  font-size: 2em;
+}
+a.nav-active {
+  text-decoration: none;
+}
+a.nav-active:hover {
+  color: white;
+}
+

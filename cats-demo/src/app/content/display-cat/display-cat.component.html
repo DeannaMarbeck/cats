@@ -1,0 +1,25 @@
+<!--Content for home page-->
+<header>
+  <p>Stressed?</p>
+  <p>Stuck on a coding problem?  Or just feeling a bit {{today | date:'EEEE'}}-ish?</p>
+  <p>Free your sub-conscious and...</p>
+  <h1>Create a cat gallery!</h1>
+  <button
+    mat-raised-button color="primary"
+    (click)="newCat()"
+    *ngIf="catDataService.catData.getValue().length === 0; else displayCat">
+    Get my first cat <mat-icon>pets</mat-icon>
+  </button>
+</header>
+<!--Display this section once a cat has been fetched-->
+<ng-template #displayCat>
+  <section *ngIf="catDataService.catData | async; let cat">
+    <app-gallery-image [cat]="cat"></app-gallery-image>
+    <div class="gallery-actions">
+      <button mat-raised-button color="primary" (click)="saveCat(cat.id, cat.url)">Add to gallery <mat-icon>add_to_photos</mat-icon></button>
+      <button mat-raised-button color="accent" (click)="newCat()">No thanks. next! <mat-icon>navigate_next</mat-icon></button>
+    </div>
+    <p>Number of cats in your gallery: {{numberOfCats}}</p>
+    <a mat-raised-button color="primary" routerLink="gallery">Go to gallery <mat-icon>collections</mat-icon></a>
+  </section>
+</ng-template>
