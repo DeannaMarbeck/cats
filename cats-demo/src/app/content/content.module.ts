@@ -10,6 +10,10 @@ import { GalleryImageComponent } from './gallery-image/gallery-image.component';
     CommonModule,
     SharedModule
   ],
-  declarations: [DisplayCatComponent, GalleryComponent, GalleryImageComponent]
+  declarations: [
+    DisplayCatComponent,
+    GalleryComponent,
+    GalleryImageComponent
+  ]
 })
 export class ContentModule { }
